@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from movie_app import views
+from users.views import register, confirm_user, authenticate
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,5 +27,9 @@ urlpatterns = [
     path('api/v1/movies/<int:id>/', views.moive_detail_api_view),
     path('api/v1/reviews', views.List_Review_api_view),
     path('api/v1/directors/<int:id>/', views.review_detail_api_view),
-    path('api/v1/movies/reviews/', views.movies_reviews_api_view)
+    path('api/v1/movies/reviews/', views.movies_reviews_api_view),
+    path('api/v1/users/register/', register),
+    path('api/v1/users/authenticate', authenticate),
+    path('api/v1/users/confirm', confirm_user),
+
 ]
